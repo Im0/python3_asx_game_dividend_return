@@ -25,13 +25,15 @@ for row in rows:
     row.append("%.2f" % current_price)
 
 for row in rows:
-    cost_per_thousand = float(row[5][1:]) * 1000 # Remove the first character ($) of the row and store as a float
+    cost_per_thousand = float(row[5]) * 1000 # Remove the first character ($) of the row and store as a float
+    print(f"{row[2]} (row 4 {row[4]} (row 5 {row[5]}) cost per share {cost_per_thousand}")
     row.append("%.2f" % cost_per_thousand)
 
 # Calculate the potential return based on 1000 shares
 for row in rows:
     dividend_payout = float(row[4][1:]) # Remove the first character ($) of the row and store as a float
     dividend_return = dividend_payout * 1000
+    print(f" {row[2]} payout row 4 {row[4][1:]} dividend return {dividend_return} ")
     # return_percent = (buy_price - 100) / 100 * 1000
     row.append("%.2f" % dividend_return)
 
